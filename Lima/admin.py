@@ -9,18 +9,19 @@ from .models import Crop
 
 
 class cropDesign(admin.ModelAdmin):
-    list_display = ["cropName"]
+    list_display = ["crop_name"]
 
 
-class farmerDesign(admin.ModelAdmin):    list_display = ["firstName", "lastName", "address", "district","agentId"]
+class farmerDesign(admin.ModelAdmin):
+    list_display = ["first_name", "last_name", "phone_number", "address", "district","agentId"]
 
 
 class MarketDesign(admin.ModelAdmin):
-    list_display = ["marketName","townName"]
+    list_display = ["market_name","town_name"]
 
 class agentDesign(admin.ModelAdmin):
 
-    list_display = ["person_id", "firstName","lastName","address","district","marketName"]
+    list_display = ["person_id", "first_name","last_name", "phone_number", "address","district","market_name"]
 
 #admin.site.register(Farmer,farmerDesign)
 #admin.site.register(Markets,MarketDesign)
