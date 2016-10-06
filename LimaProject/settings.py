@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Lima',
+    'django_model_changes',
+
 ]
 
 MIDDLEWARE = [
