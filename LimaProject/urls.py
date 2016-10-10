@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework.urlpatterns import format_suffix_patterns
+from Lima import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^endpoints/', views.AgentList.as_view()),
 ]
-admin.site.site_header = 'Limalinks Admin'
+urlpatterns = format_suffix_patterns(urlpatterns)

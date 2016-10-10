@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+
 # Register your models here.
 from .models import Person
 from .models import Farmer
@@ -7,6 +8,7 @@ from .models import Agent
 from .models import Market
 from .models import Crop
 from .models import Town
+
 
 
 class cropDesign(admin.ModelAdmin):
