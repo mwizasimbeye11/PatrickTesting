@@ -20,6 +20,8 @@ from Lima import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^endpoints/', views.AgentList.as_view()),
+    url(r'^v1/login/', views.AgentList.as_view()),
+    url(r'^v1/cropnames/', views.CropList.as_view()),
+    url(r'^v1/marketnames/', views.MarketList.as_view()),
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
