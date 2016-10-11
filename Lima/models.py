@@ -28,6 +28,7 @@ def Choice(market):
 class District(models.Model):
     id = models.AutoField(primary_key=True, default=1)
     district = models.CharField(max_length=40)
+    
     def __unicode__(self):
         return self.district
 
