@@ -25,7 +25,7 @@ class CropList(APIView):
         serializer = CropSerializer(crop, many=True)
         return Response(serializer.data)
 
-    def post(self, request , format = None):
+    def post(self, request):
         serializer = AgentSerializer(data=request.DATA)
         if serializer.is_valid():
             serializer.save()

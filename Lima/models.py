@@ -25,12 +25,14 @@ def Choice(market):
 
 
 
+class District(models.Model):
+    id = models.AutoField(primary_key=True, default=1)
+    district = models.CharField(max_length=40)
 
 class Person(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     address = models.CharField(max_length=40)
-    district = models.CharField(max_length=40)
     phone_number = models.IntegerField(max_length=10)
     person_id = models.CharField(max_length=5, default=agent_id, editable=False, primary_key = True)
     password = models.CharField(max_length=5, default=random_string, editable=True)
@@ -49,6 +51,7 @@ class Market(models.Model):
     #global market_name
     market_name = models.CharField(max_length=50)
     town_id = models.ForeignKey(Town, default=0)
+    district = models.ForeignKey(District,default=10)
 
     def __unicode__(self):
         return self.market_name
