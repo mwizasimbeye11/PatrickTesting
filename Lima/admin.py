@@ -28,7 +28,7 @@ class TownDesign(admin.ModelAdmin):
 
 class agentDesign(admin.ModelAdmin):
 
-    list_display = ["person_id", "first_name","last_name", "phone_number", "address","district",]
+    list_display = ["person_id", "first_name","last_name", "phone_number", "address",]
 
 #admin.site.register(Farmer,farmerDesign)
 #admin.site.register(Markets,MarketDesign)

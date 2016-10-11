@@ -33,7 +33,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     address = models.CharField(max_length=40)
-    phone_number = models.IntegerField(max_length=10)
+    phone_number = models.IntegerField()
     person_id = models.CharField(max_length=5, default=agent_id, editable=False, primary_key = True)
     password = models.CharField(max_length=5, default=random_string, editable=True)
 
