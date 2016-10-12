@@ -27,10 +27,10 @@ def Choice(market):
 
 class District(models.Model):
     id = models.AutoField(primary_key=True, default=1)
-    district = models.CharField(max_length=40)
-    
+    district_name = models.CharField(max_length=40)
+
     def __unicode__(self):
-        return self.district
+        return self.district_name
 
 class Person(models.Model):
     first_name = models.CharField(max_length=40)
@@ -42,6 +42,7 @@ class Person(models.Model):
 
 class Town(models.Model):
     id = models.AutoField(primary_key=True,default=1)
+    district_id = models.ForeignKey(District, default=0)
     # town_list = (('Sowet', 'Lusaka'), ('New Kasanda', 'Kabwe'), ('Masala', 'Ndola'), ('Chisokone', 'Kitwe'),)
     town_name = models.CharField(max_length=50)
     # transaction.commit()  # Whenever you want to see
@@ -54,7 +55,7 @@ class Market(models.Model):
     #global market_name
     market_name = models.CharField(max_length=50)
     town_id = models.ForeignKey(Town, default=0)
-    district = models.ForeignKey(District,default=10)
+
 
     def __unicode__(self):
         return self.market_name
@@ -133,3 +134,6 @@ class Farmer(Person):
 
 class Crop(models.Model):
     crop_name = models.CharField(max_length=40)
+    verified = models.BooleanField("Verification")
+    class Meta:
+        default_related_name = "Verification"
