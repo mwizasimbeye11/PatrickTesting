@@ -10,6 +10,7 @@ from .models import Market
 from .models import Crop
 from .models import Town
 from .models import District
+from .models import Farmer
 from django.db import models
 from django.db.models.query import QuerySet
 
@@ -28,7 +29,7 @@ class cropDesign(admin.ModelAdmin):
 
 
 class farmerDesign(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "phone_number", "address", "district","agentId"]
+    list_display = ["first_name", "last_name", "phone_number", "address","agentId"]
 
 
 class MarketDesign(admin.ModelAdmin):
@@ -45,7 +46,7 @@ class agentDesign(admin.ModelAdmin):
 
     list_display = ["person_id", "first_name","last_name", "phone_number", "address",]
 
-#admin.site.register(Farmer,farmerDesign)
+admin.site.register(Farmer,farmerDesign)
 #admin.site.register(Markets,MarketDesign)
 admin.site.register(Agent,agentDesign)
 #admin.site.register(Crop,cropDesign)
