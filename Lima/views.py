@@ -12,7 +12,7 @@ class AgentViewSet(ModelViewSet):
     """ API endpoint for creating, updating and retrieving agents. """
     queryset = Agent.objects.all()  # Needed for the REST Permissions
     serializer_class = AgentSerializer
-    permission_classes = (DjangoModelPermissions,)
+   # permission_classes = (DjangoModelPermissions,)
 
 
 class CropViewSet(ModelViewSet):
