@@ -5,10 +5,8 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.routers import DefaultRouter
-
 from .serializers import AgentSerializer, CropSerializer, MarketSerializer
 from .models import Agent, Crop, Market
-
 
 class AgentViewSet(ModelViewSet):
     """ API endpoint for creating, updating and retrieving agents. """
@@ -29,7 +27,6 @@ class MarketViewSet(ModelViewSet):
     queryset = Market.objects.all()  # Needed for the REST Permissions
     serializer_class = MarketSerializer
     permission_classes = (DjangoModelPermissions,)
-
 
 api_v1 = DefaultRouter()
 api_v1.register(r'agents', AgentViewSet)

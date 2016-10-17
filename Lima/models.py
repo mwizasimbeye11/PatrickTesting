@@ -5,13 +5,11 @@ from django.contrib.auth.models import User
 from django.dispatch import dispatcher
 from django.db.models import QuerySet
 from django.db import transaction
-
-
-
 from django.db import models
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 import random, string
+
 # Create your models here.
 def random_string():
     return str(random.randint(10000, 99999))
@@ -21,9 +19,6 @@ def agent_id():
 def Choice(market):
 
         return market
-
-
-
 
 class District(models.Model):
     id = models.AutoField(primary_key=True)
@@ -43,7 +38,6 @@ class Person(models.Model):
 class Town(models.Model):
     id = models.AutoField(primary_key=True)
     district_id = models.ForeignKey(District,on_delete=models.CASCADE)
-    # town_list = (('Sowet', 'Lusaka'), ('New Kasanda', 'Kabwe'), ('Masala', 'Ndola'), ('Chisokone', 'Kitwe'),)
     town_name = models.CharField(max_length=50)
     # transaction.commit()  # Whenever you want to see
 
@@ -51,58 +45,25 @@ class Town(models.Model):
         return self.town_name
 
 class Market(models.Model):
-
     #global market_name
     market_name = models.CharField(max_length=50)
     town_id = models.ForeignKey(Town, on_delete=models.CASCADE)
-
 
     def __unicode__(self):
         return self.market_name
 
 def get_queryset(self):
     mylist = []
-    #transaction.enter_transaction_management()
     transaction.commit()  # Whenever you want to see
     data = Market.objects.all()
 
-    # data._result_cache = None
     for e in data:
         mylist.append((e.market_name, e.market_name), )
         m = tuple(mylist)
     return m
 
-
-
-
-
-
-
-
-
 class Agent(Person,models.Model):
-
-    # MARKETS = (("patrick","sikalinda"),("Mwiza","Simbeye"))
-    # market_names = models.CharField(max_length=50, choices=get_queryset(Markets))
     market = models.ForeignKey(Market, default=1)
-
-
-
-
-
-
-    #entries = Entry.objects.filter(**kwargs)
-    #Markets.save(self)
-
-
-
-
-
-    #market_name = models.CharField(max_length=50, choices=MARKETS)
-
-
-
-
 
 def send_user_email(sender, instance, **kwargs):
    if kwargs['created']:
@@ -127,12 +88,9 @@ def send_user_email(sender, instance, **kwargs):
 
 post_save.connect(send_user_email, weak=True, sender=Agent)
 
-
 class Farmer(Person):
     id = models.AutoField(primary_key=True)
     agentId = models.CharField(max_length=10)
-
-
 
 class Crop(models.Model):
     crop_name = models.CharField(max_length=40)
