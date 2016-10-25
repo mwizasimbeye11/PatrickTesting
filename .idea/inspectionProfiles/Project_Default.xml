@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="Lima.admin.helpers" />
+          <option value="Lima.views.obtain_auth_token" />
         </list>
       </option>
     </inspection_tool>

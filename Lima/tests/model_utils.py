@@ -2,7 +2,7 @@
 
 from django.contrib.auth import get_user_model
 
-from Lima.models import Agent
+from Lima.models import Agent,Market
 
 
 def create_user(username, superuser=False):
@@ -67,4 +67,13 @@ agent_helper = AgentHelper(
     phone_number=555,
     person_id="agent-1",
     password="secret-agent",
+)
+
+class MarketHelper(ModelHelper):
+    model = Market
+    town_id = 1
+
+market_helper = MarketHelper (
+    market_name = "New Kasanda",
+    town_id = 1
 )

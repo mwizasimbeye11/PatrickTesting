@@ -4,7 +4,7 @@ from django.test import TestCase
 
 from rest_framework.test import APIClient
 
-from .model_utils import agent_helper, create_user
+from .model_utils import agent_helper, create_user,market_helper
 
 
 class AgentListTestCase(TestCase):
@@ -46,4 +46,5 @@ class CropListTestCase(TestCase):
 
 class MarketListTestCase(TestCase):
     """ Tests for the market list API. """
+    market
     # TODO: write the tests
