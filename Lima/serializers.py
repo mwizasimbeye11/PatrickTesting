@@ -11,6 +11,7 @@ class AgentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Agent
         fields = '__all__'
+        depth = 4
 
 
 class CropSerializer(serializers.ModelSerializer):

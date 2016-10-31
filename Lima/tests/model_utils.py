@@ -2,7 +2,7 @@
 
 from django.contrib.auth import get_user_model
 
-from Lima.models import Agent,Market
+from Lima.models import Agent, Crop, Market, Town
 
 
 def create_user(username, superuser=False):
@@ -39,7 +39,7 @@ class ModelHelper(object):
 
     def build(self, **kw):
         """ Build a model instance and return it. The instance is not saved to
-            the database.
+            database.
         """
         build_kw = self.defaults.copy()
         build_kw.update(kw)
@@ -69,11 +69,22 @@ agent_helper = AgentHelper(
     password="secret-agent",
 )
 
+
 class MarketHelper(ModelHelper):
     model = Market
-    town_id = 1
 
-market_helper = MarketHelper (
-    market_name = "New Kasanda",
-    town_id = 1
+
+market_helper = MarketHelper(
+    market_name="Market",
+    town_id_id=1,
+
+)
+
+
+class CropHelper(ModelHelper):
+    model = Crop
+
+crop_helper = CropHelper(
+    crop_name="Crop",
+    verified=False,
 )
