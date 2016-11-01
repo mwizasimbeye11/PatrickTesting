@@ -24,7 +24,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     address = models.CharField(max_length=40)
-    phone_number = models.IntegerField()
+    phone_number = models.IntegerField(max_length=10)
     password = models.CharField(max_length=5, default=random_string, editable=True)
 
 
@@ -102,8 +102,29 @@ class Farmer(Person):
 class Crop(models.Model):
     name = models.CharField(max_length=40)
 
+    def __unicode__(self):
+        return self.name
+
 
 class CropToFarmer(models.Model):
-    id = models.AutoField(primary_key=True)
     crop = models.CharField(max_length=40)
     farmer = models.CharField(max_length=40)
+
+
+class Packaging(models.Model):
+    name = models.CharField(max_length=40)
+
+    def __unicode__(self):
+        return self.name
+
+
+class CropPackaging(models.Model):
+    crop = models.ForeignKey(Crop, max_length=40)
+    market = models.ForeignKey(Market, max_length=40)
+    packaging = models.ForeignKey(Packaging, max_length=40)
+
+
+class FarmerToAgent(models.Model):
+    farmer = models.ForeignKey(Farmer, max_length=40)
+    agent = models.ForeignKey(Agent, max_length=40)
+
