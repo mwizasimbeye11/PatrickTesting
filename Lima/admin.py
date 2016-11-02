@@ -36,7 +36,7 @@ class DistrictDesign(admin.ModelAdmin):
 
 class AgentDesign(admin.ModelAdmin):
 
-    list_display = ["first_name", "last_name", "phone_number", "address"]
+    list_display = ["agent_id", "first_name", "last_name", "phone_number", "address"]
 
 
 class PackagingDesign(admin.ModelAdmin):
